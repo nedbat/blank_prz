@@ -3,8 +3,6 @@
 import os
 import textwrap
 
-import pygments, pygments.lexers, pygments.formatters
-
 import cog
 import cagedprompt
 
@@ -62,7 +60,7 @@ def include_file(fname, start=None, end=None, highlight=None, section=None, px=F
     text = "\n".join(lines)
 
     lang = "python" if fname.endswith(".py") else "text"
-    include_code(text, lang=lang, firstline=start, number=True, show_text=True, highlight=highlight, px=px)
+    include_code(text, lang=lang, firstline=start, number=True, highlight=highlight, px=px)
 
 
 def include_code(text, lang=None, number=False, firstline=1, show_text=False, highlight=None, px=False):
@@ -84,30 +82,11 @@ def include_code(text, lang=None, number=False, firstline=1, show_text=False, hi
         cog.outl("<!-- *** NOPYG: {} lines of text will be here. *** -->".format(len(text.splitlines())))
         return
 
-    # Because we are omitting the <pre> wrapper, we need spaces to become &nbsp;.
-    # This is totally not a public interface...
-    pygments.formatters.html._escape_html_table.update({ord(' '): u'&#xA0;'})
-
-    class CodeHtmlFormatter(pygments.formatters.HtmlFormatter):
-
-        def wrap(self, source, outfile):
-            return self._wrap_code(source)
-
-        def _wrap_code(self, source):
-            yield 0, '<div class="code {}"> <!-- {{{{{{ -->\n'.format(lang)
-            for i, t in source:
-                if i == 1:
-                    # it's a line of formatted code
-                    t = '<div class="line">{}&nbsp;</div>\n'.format(t.rstrip())
-                yield i, t
-            yield 0, '</div><!-- }}} -->'
-
-    lexer = pygments.lexers.get_lexer_by_name(lang, stripall=True)
-    linenos = 'inline' if number else False
-    hl_lines = [l-firstline+1 for l in (highlight or [])]
-    formatter = CodeHtmlFormatter(linenos=linenos, linenostart=firstline, cssclass="source", hl_lines=hl_lines)
-    result = pygments.highlight(text, lexer, formatter)
-    cog.outl(result)
+    result = []
+    result.append("<pre class='{}'>".format(lang))
+    result.append(text.replace("&", "&amp;").replace("<", "&lt;"))
+    result.append("</pre>")
+    cog.outl("\n".join(result))
 
 
 def prompt_session(input, command=False, prelude=""):
@@ -115,4 +94,4 @@ def prompt_session(input, command=False, prelude=""):
     if command:
         output += "$ python\n"
     output += cagedprompt.prompt_session(input, banner=command, prelude=prelude)
-    include_code(output, lang="pycon", number=False, show_text=True)
+    include_code(output, lang="pycon", number=False)

@@ -6,14 +6,28 @@ SUPPORT = lineselect.js
 
 .PHONY: $(SLIDE_HTML)
 
+SAMPLES = sample.py
+
+OUTPUT = sample.out
+
 slides: $(SLIDE_HTML)
+
+$(SLIDE_HTML): $(OUTPUT)
+	python -m cogapp -r $@
+
+%.out: %.py
+	python $*.py > $@ 2>&1
 
 PNG_DIR = png
 
 clean:
 	rm -f *.pyc $(PX)
+	rm -f $(OUTPUT)
 	rm -rf __pycache__
 	rm -rf $(PNG_DIR)
+
+sterile: clean
+	python -m cogapp -x -r $(SLIDE_HTML)
 
 pngs:
 	phantomjs phantom-slippy-to-png.js $(SLIDE_HTML) $(PNG_DIR)/

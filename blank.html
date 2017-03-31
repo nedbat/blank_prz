@@ -3,11 +3,16 @@
 Process this file with cog:
 
     $ pip install -r requirements.txt
-    $ cog.py -r blank.html
+    $ python -m cogapp -r blank.html
 
 -->
 <html>
 <!-- *** Head stuff {{{ -->
+<!--[[[cog
+import cog
+from cogutil import *
+]]]-->
+<!--[[[end]]]-->
 <head>
 <title>Prez Title</title>
 <meta charset="utf-8" />
@@ -326,6 +331,30 @@ values.</p>
         else:
             return fib(n-1) + fib(n-2)
     </pre>
+</div>
+
+
+<div class="slide">
+    <h1>Included code</h1>
+    <!--[[[cog include_file("sample.py") ]]] {{{ -->
+    <pre class='python'>
+    def f(n):
+        print("Look!: {}".format(n))
+        if n > 0:
+            f(n-1)
+
+    f(4)
+    </pre>
+    <!--[[[end]]] }}}-->
+    <!--[[[cog include_file("sample.out") ]]] {{{ -->
+    <pre class='text'>
+    Look!: 4
+    Look!: 3
+    Look!: 2
+    Look!: 1
+    Look!: 0
+    </pre>
+    <!--[[[end]]] }}}-->
 </div>
 
 
