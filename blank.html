@@ -87,17 +87,25 @@ from cogutil import *
                 });
             }
 
+            // Highlight the code in <pre> blocks.
             $('pre').each(function (i, e) {
                 hljs.highlightBlock(e, '    ');
             });
 
+            // Convert <pre> to have <span class='line'> for each line.
             $('pre').each(function (i, e) {
                 var $e = $(e);
-                var h = $e.html();
-                h = h.replace(/\n\n/g, "\n \n");
-                h = h.replace(/\n/g, "</span>\n<span class='line'>");
-                h = "<span class='line'>" + h + "</span>";
-                $e.html(h);
+                var lines = $e.html().split("\n");
+                for (var i = 0; i < lines.length; i++) {
+                    var line = lines[i];
+                    if (line === "") {
+                        lines[i] = "<span class='blankline'>&nbsp;</span>";
+                    }
+                    else {
+                        lines[i] = "<span class='line'>" + lines[i] + "</span>";
+                    }
+                }
+                $e.html(lines.join("\n"));
             });
 
             $("div.slide").lineselect({ lines: "pre span.line" });
