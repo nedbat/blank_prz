@@ -120,6 +120,11 @@ a:visited, a:active, a:link, a {
     color: #0000CC;
     cursor: pointer;
 }
+a.implicit {
+    text-decoration: none;
+    color: inherit;
+}
+
 body.notes {
     overflow: auto;
     background: white;
