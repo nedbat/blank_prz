@@ -172,7 +172,7 @@ from cogutil import *
     <pre class='python'>
     def f(n):
         print("Look!: {}".format(n))
-        if n > 0:
+        if n &gt; 0:
             f(n-1)
 
     f(4)
@@ -180,6 +180,30 @@ from cogutil import *
     <!--[[[end]]] }}}-->
     <!--[[[cog include_file("sample.out") ]]] {{{ -->
     <pre class='text'>
+    Look!: 4
+    Look!: 3
+    Look!: 2
+    Look!: 1
+    Look!: 0
+    </pre>
+    <!--[[[end]]] }}}-->
+</div>
+
+
+<div class="slide">
+    <h1>Smaller code</h1>
+    <!--[[[cog include_file("sample.py", classes="smaller") ]]] {{{ -->
+    <pre class='smaller python'>
+    def f(n):
+        print("Look!: {}".format(n))
+        if n &gt; 0:
+            f(n-1)
+
+    f(4)
+    </pre>
+    <!--[[[end]]] }}}-->
+    <!--[[[cog include_file("sample.out", classes="smaller") ]]] {{{ -->
+    <pre class='smaller text'>
     Look!: 4
     Look!: 3
     Look!: 2

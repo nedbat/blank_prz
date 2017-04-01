@@ -19,7 +19,7 @@ def clip_long_boring_line(s, l):
     return s
 
 
-def include_file(fname, start=None, end=None, highlight=None, section=None, px=False):
+def include_file(fname, start=None, end=None, highlight=None, section=None, px=False, classes=""):
     """Include a text file.
 
     `fname` is read as text, and included in a <pre> tag.
@@ -32,6 +32,8 @@ def include_file(fname, start=None, end=None, highlight=None, section=None, px=F
     for display.  Markers for section foobar are "(((foobar))" and "(((end)))".
 
     If `px` is true, the result is meant for text rather than slides.
+
+    `classes` are extra css classes to add to the <pre> tag.
 
     """
     with open(fname) as f:
@@ -60,10 +62,10 @@ def include_file(fname, start=None, end=None, highlight=None, section=None, px=F
     text = "\n".join(lines)
 
     lang = "python" if fname.endswith(".py") else "text"
-    include_code(text, lang=lang, firstline=start, number=True, highlight=highlight, px=px)
+    include_code(text, lang=lang, firstline=start, number=True, highlight=highlight, px=px, classes=classes)
 
 
-def include_code(text, lang=None, number=False, firstline=1, show_text=False, highlight=None, px=False):
+def include_code(text, lang=None, number=False, firstline=1, show_text=False, highlight=None, px=False, classes=""):
     text = textwrap.dedent(text)
 
     if px:
@@ -83,8 +85,11 @@ def include_code(text, lang=None, number=False, firstline=1, show_text=False, hi
         return
 
     result = []
-    result.append("<pre class='{}'>".format(lang))
-    result.append(text.replace("&", "&amp;").replace("<", "&lt;"))
+    if classes:
+        classes += " "
+    classes += lang
+    result.append("<pre class='{}'>".format(classes))
+    result.append(quote_html(text))
     result.append("</pre>")
     cog.outl("\n".join(result))
 

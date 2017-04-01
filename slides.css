@@ -79,6 +79,10 @@ h1, h2, h3, h4 {
     line-height: 1.15;
 }
 
+.slide pre.smaller {
+    font-size: 75%;
+}
+
 .slide pre.python {
     background: #cfc;
 }
