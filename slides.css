@@ -83,6 +83,14 @@ h1, h2, h3, h4 {
     font-size: 75%;
 }
 
+.slide pre.tiny {
+    font-size: 50%;
+}
+
+.slide pre.micro {
+    font-size: 30%;
+}
+
 .slide pre.python {
     background: #cfc;
 }
