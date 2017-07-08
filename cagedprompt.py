@@ -1,7 +1,7 @@
 """A python prompt in a cage, for producing prompt sessions."""
 
 import code
-import cStringIO as StringIO
+from six.moves import cStringIO as StringIO
 import sys
 import textwrap
 
@@ -58,4 +58,4 @@ if __name__ == '__main__':
         f
         """
 
-    print prompt_session(TEST_INPUT)
+    print(prompt_session(TEST_INPUT))
