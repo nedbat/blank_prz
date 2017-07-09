@@ -79,6 +79,10 @@ h1, h2, h3, h4 {
     line-height: 1.15;
 }
 
+.slide pre.medium {
+    font-size: 85%;
+}
+
 .slide pre.small {
     font-size: 75%;
 }
