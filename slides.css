@@ -38,7 +38,7 @@ h1, h2, h3, h4 {
     margin-top: 2em;
 }
 .slide.section {
-    background-color: #ff8;
+    background-color: #ffb;
 }
 .slide.section h1 {
     font-family: "Open Sans", sans-serif;
@@ -71,12 +71,30 @@ h1, h2, h3, h4 {
     margin-top: .5em;
 }
 
+.larger {
+    font-size: 200%;
+}
+
+img.fullwidth {
+    width: 100%;
+    height: auto;
+}
+
+img.fullheight {
+    width: auto;
+    height: calc(100% - 1em);   /* Slides have no bottom margin. */
+}
+
 .slide pre {
     font-family: Consolas, monaco, monospace;
     margin-top: 1em;
     background: #ccf;
     padding: .3em .35em;
     line-height: 1.15;
+}
+
+.slide tt {
+    font-family: Consolas, monaco, monospace;
 }
 
 .slide pre.medium {
@@ -95,8 +113,21 @@ h1, h2, h3, h4 {
     font-size: 30%;
 }
 
+.slide pre.nano {
+    font-size: 10%;
+}
+
 .slide pre.python {
     background: #cfc;
+}
+
+.slide pre .attn {
+    background: #ada;
+    border-radius: .15em;
+}
+
+.slide pre .highlight {
+    background: #fe4;
 }
 
 pre .selected {
@@ -112,11 +143,14 @@ html.phantompng pre .selected {
 }
 
 .slide li {
-    list-style: none;
     margin-top: .5em;
-    position:relative;
+    position: relative;
+    line-height: 1.2em;
 }
-.slide li:before {
+.slide ul>li {
+    list-style: none;
+}
+.slide ul>li:before {
     content: '';
     display: block;
     position: absolute;
@@ -187,4 +221,11 @@ body.notes {
 }
 .slide pre.tophalf {
     margin-top: 0;  /* No idea why I need this... :( :( */
+}
+
+table, td, th {
+    border: 1px solid #888;
+}
+td, th {
+    padding: .35em .5em;
 }
