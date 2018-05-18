@@ -8,16 +8,15 @@ div.text {
 }
 
 .slide {
-    font-family: "Open Sans", sans-serif;
     font-weight: 600;
     margin: 1em;
     border: 1px solid #ccc;
     border-radius: 1em;
     background: #fffaf0;
     font-size: 150%;
+    overflow: hidden;
 }
 h1, h2, h3, h4 {
-    font-family: "Open Sans", sans-serif;
     font-weight: 700;
     line-height: 1.5;
     text-align: left;
@@ -25,7 +24,6 @@ h1, h2, h3, h4 {
 }
 
 .slide.title h1 {
-    font-family: "Open Sans", sans-serif;
     font-weight: 800;
     padding-top: 2em;
     font-size: 200%;
@@ -41,7 +39,6 @@ h1, h2, h3, h4 {
     background-color: #ffb;
 }
 .slide.section h1 {
-    font-family: "Open Sans", sans-serif;
     font-weight: 700;
     margin-top: 3em;
     font-size: 200%;
@@ -65,6 +62,14 @@ h1, h2, h3, h4 {
     padding: 0 .2em;
     color: #aaa;
 }
+.slide .punct:first-child {
+    padding-left: 0;
+}
+
+img.icon {
+    width: 1.2em;
+    vertical-align: bottom;
+}
 
 .slide p.generic {
     font-family: serif;
@@ -75,14 +80,24 @@ h1, h2, h3, h4 {
     font-size: 200%;
 }
 
-img.fullwidth {
+.fullwidth {
     width: 100%;
     height: auto;
 }
 
-img.fullheight {
+.fullheight {
     width: auto;
     height: calc(100% - 1em);   /* Slides have no bottom margin. */
+}
+
+.center {
+    text-align: center !important;
+}
+
+/* Styled the same as an h1 */
+.big {
+    font-weight: 700;
+    font-size: 150%;
 }
 
 .slide pre {
@@ -133,6 +148,7 @@ img.fullheight {
 pre .selected {
     background: #fff;
     border: .15em solid #f66;
+    border-radius: 5px;
     padding: .15em .15em .05em .15em;
     margin: -.30em -.30em -.20em -.30em;
 }
@@ -225,7 +241,21 @@ body.notes {
 
 table, td, th {
     border: 1px solid #888;
+    font-weight: 600;
 }
 td, th {
     padding: .35em .5em;
+}
+
+/* Slippy's css reset clobbers the meaning of <sub> and <sup> */
+sub {
+    line-height: 0;
+    font-size: 75%;
+    vertical-align: sub;
+}
+
+sup {
+    line-height: 0;
+    font-size: 75%;
+    vertical-align: super;
 }
