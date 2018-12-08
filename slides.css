@@ -38,6 +38,12 @@ h1, h2, h3, h4 {
 .slide.section {
     background-color: #ffb;
 }
+.slide.section label {
+    color: #888;
+    font-style: italic;
+    font-size: 85%;
+    display: block;
+}
 .slide.section h1 {
     font-weight: 700;
     margin-top: 3em;
