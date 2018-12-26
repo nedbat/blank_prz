@@ -1,6 +1,7 @@
 body, html {
     background: #222;
     font-family: "Open Sans", sans-serif;
+    line-height: 1.3;
 }
 
 div.text {
@@ -113,9 +114,29 @@ img.icon {
     padding: .3em .35em;
     line-height: 1.15;
 }
+.slide .prelabel {
+    font-size: 80%;
+    font-style: italic;
+    color: #030;
+    float: right;
+    margin-right: .25em;
+    margin-top: .25em;
+    border: 1px solid #beb;
+    border-radius: .15em;
+    padding: .25em .5em;
+    background: #f8fff8;
+}
 
 .slide tt {
     font-family: Consolas, monaco, monospace;
+}
+
+.slide pre.clear {
+    background: none;
+}
+
+.slide pre.clear.python {
+    background: none;
 }
 
 .slide pre.medium {
@@ -142,6 +163,14 @@ img.icon {
     background: #cfc;
 }
 
+.slide pre.python.console {
+    background: #cee;
+}
+
+.slide pre.python.console .meta {
+    color: #666;
+}
+
 .slide pre .attn {
     background: #ada;
     border-radius: .15em;
@@ -149,6 +178,10 @@ img.icon {
 
 .slide pre .highlight {
     background: #fe4;
+}
+
+.slide pre .comment {
+    font-style: italic;
 }
 
 pre .selected {
@@ -264,4 +297,11 @@ sup {
     line-height: 0;
     font-size: 75%;
     vertical-align: super;
+}
+
+.overviewWrapper {
+    border: 1px solid #000;
+}
+.overviewWrapper.active {
+    border: 1px solid #fff;
 }
