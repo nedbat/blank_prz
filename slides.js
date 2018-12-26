@@ -58,6 +58,10 @@ $(function() {
     }
 
     // Highlight the code in <pre> blocks.
+    hljs.configure({
+        tabReplace: '    ', // 4 spaces
+        classPrefix: ''     // don't append class prefix
+    });
     $('pre').each(function (i, e) {
         hljs.highlightBlock(e, '    ');
     });
