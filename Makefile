@@ -3,7 +3,7 @@ SLUG = blank
 SLIDE_HTML = $(SLUG).html
 ZIP_FILE = $(SLUG).zip
 
-SUPPORT = lineselect.js slides.js slides.css
+SUPPORT = lineselect.js slides.js slides.css typogr.min.js
 IMAGES = *.jpg *.png
 VENDOR = slippy highlight
 
