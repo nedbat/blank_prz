@@ -34,6 +34,7 @@ def include_file(
         start=None, end=None,
         start_has=None, end_has=None,
         start_from=None, end_at=None,
+        start_nth=1, end_nth=1,
         line_count=None,
         highlight=None,
         section=None,
@@ -52,7 +53,8 @@ def include_file(
     file hasn't changed. Similarly for `end_has`.
 
     `start_from` and `end_at` are substrings of the first and last lines to
-    show.
+    show.  `start_nth` indicates which occurrence of `start_from` to take,
+    similarly for `end_nth`.
 
     `section` is a named section.  If provided, a marked section in the file is extracted
     for display.  Markers for section foobar are "(((foobar))" and "(((end)))".
@@ -85,11 +87,11 @@ def include_file(
     if start_from:
         assert start is None
         assert end is None
-        start = next((i for i, l in enumerate(lines, 1) if start_from in l), None)
+        start = find_nth(lines, 0, start_from, start_nth)
         if start is None:
             raise Exception("Didn't find {!r} as a start line".format(start_from))
         if end_at:
-            end = next((i for i, l in enumerate(lines[start:], start+1) if end_at in l), None)
+            end = find_nth(lines, start, end_at, end_nth)
             if end is None:
                 raise Exception("Didn't find {!r} as an end line".format(end_at))
         elif line_count is not None:
@@ -125,6 +127,13 @@ def include_file(
     include_code(text, lang=lang, firstline=start, number=True, highlight=highlight, px=px, classes=classes)
     if show_label:
         cog.outl("</div>")
+
+
+def find_nth(lines, start, needle, nth):
+    indexes = [i for i, l in enumerate(lines[start:], start+1) if needle in l]
+    if nth > len(indexes):
+        return None
+    return indexes[nth-1]
 
 
 def include_code(text, lang=None, number=False, firstline=1, show_text=False, highlight=None, px=False, classes=""):
