@@ -139,23 +139,27 @@ img.icon {
     background: none;
 }
 
-.slide pre.medium {
+.slide pre.medium, .slide pre.s85 {
     font-size: 85%;
 }
 
-.slide pre.small {
+.slide pre.small, .slide pre.s75 {
     font-size: 75%;
 }
 
-.slide pre.tiny {
+.slide pre.tiny, .slide pre.s50 {
     font-size: 50%;
 }
 
-.slide pre.micro {
+.slide pre.micro, .slide pre.s30 {
     font-size: 30%;
 }
 
-.slide pre.nano {
+.slide pre.s40 {
+    font-size: 40%;
+}
+
+.slide pre.nano, .slide pre.s10 {
     font-size: 10%;
 }
 
