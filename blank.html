@@ -157,6 +157,41 @@ from cogutil import *
 </div>
 
 
+<div class="slide">
+    <h1>First test: interactive</h1>
+    <!-- ** Interactive session {{{ -->
+    <!--[[[cog
+    prompt_session("""\
+        num = 23 + 17
+        num
+        print(num)
+        random.seed(42)
+        random.randint(1, 1_000_000)
+        """,
+        prelude="""\
+        import random
+        """)
+    ]]]-->
+    <pre class='python console '>
+    &gt;&gt;&gt; num = 23 + 17
+    &gt;&gt;&gt; num
+    40
+    &gt;&gt;&gt; print(num)
+    40
+    &gt;&gt;&gt; random.seed(42)
+    &gt;&gt;&gt; random.randint(1, 1_000_000)
+    670488
+    </pre>
+    <!--[[[end]]] }}}-->
+    <ul class="tight">
+        <li class="good">Good: testing the code</li>
+        <li class="bad">Bad: not repeatable</li>
+        <li class="bad">Bad: labor intensive</li>
+        <li class="bad">Bad: is it right?</li>
+    </ul>
+</div>
+
+
 <div class="slide title" data-layout="clean">
     <h1 style="padding-top: 0em">Questions?</h1>
     <h2 style="margin-top: 5em">
