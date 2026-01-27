@@ -1,7 +1,7 @@
 """A python prompt in a cage, for producing prompt sessions."""
 
 import code
-from six.moves import cStringIO as StringIO
+import io
 import sys
 import textwrap
 
@@ -11,7 +11,7 @@ class CagedPrompt(code.InteractiveConsole):
         code.InteractiveConsole.__init__(self, env)
 
     def run(self, input, banner=True):
-        self.out = StringIO()
+        self.out = io.StringIO()
         self.inlines = textwrap.dedent(input).splitlines()
         old_stdout = sys.stdout
         sys.stdout = self.out
