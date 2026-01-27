@@ -1,5 +1,5 @@
 def f(n):
-    print("Look!: {}".format(n))
+    print(f"Look!: {n}")
     if n > 0:
         f(n-1)
 
