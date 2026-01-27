@@ -16,7 +16,7 @@ OUTPUT = sample.out
 slides: $(SLIDE_HTML)
 
 $(SLIDE_HTML): $(OUTPUT)
-	python -m cogapp -r $@
+	python -m cogapp -c -r $@
 
 %.out: %.py
 	python $*.py > $@ 2>&1
