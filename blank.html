@@ -111,7 +111,7 @@ from cogutil import *
 
 <div class="slide">
     <h1>Included code</h1>
-    <!--[[[cog include_file("sample.py") ]]] {{{ -->
+    <!--[[[cog code(include_file("sample.py"), lang="python") ]]] {{{ -->
     <pre class='python'>
     def f(n):
         print(f"Look!: {n}")
@@ -121,7 +121,7 @@ from cogutil import *
     f(4)
     </pre>
     <!--[[[end]]] (sum: tuiz1oRRbp) }}}-->
-    <!--[[[cog include_file("sample.out") ]]] {{{ -->
+    <!--[[[cog code(include_file("sample.out"), lang="text") ]]] {{{ -->
     <pre class='text'>
     Look!: 4
     Look!: 3
@@ -135,7 +135,7 @@ from cogutil import *
 
 <div class="slide">
     <h1>Smaller code</h1>
-    <!--[[[cog include_file("sample.py", classes="small") ]]] {{{ -->
+    <!--[[[cog code(include_file("sample.py"), lang="python", classes="small") ]]] {{{ -->
     <pre class='python small'>
     def f(n):
         print(f"Look!: {n}")
@@ -145,15 +145,15 @@ from cogutil import *
     f(4)
     </pre>
     <!--[[[end]]] (sum: wR8qTSqwdR) }}}-->
-    <!--[[[cog include_file("sample.out", classes="small") ]]] {{{ -->
-    <pre class='text small'>
+    <!--[[[cog code(include_file("sample.out"), lang="text", classes="small") ]]] {{{ -->
+    <pre class='small text'>
     Look!: 4
     Look!: 3
     Look!: 2
     Look!: 1
     Look!: 0
     </pre>
-    <!--[[[end]]] (sum: aNgjlfWLmO) }}}-->
+    <!--[[[end]]] (sum: Eek1a372CH) }}}-->
 </div>
 
 
@@ -172,7 +172,7 @@ from cogutil import *
         import random
         """)
     ]]]-->
-    <pre class='python console '>
+    <pre class='console python'>
     &gt;&gt;&gt; num = 23 + 17
     &gt;&gt;&gt; num
     40
@@ -182,7 +182,7 @@ from cogutil import *
     &gt;&gt;&gt; random.randint(1, 1_000_000)
     670488
     </pre>
-    <!--[[[end]]] (sum: esaYIkbhju) }}}-->
+    <!--[[[end]]] (sum: 12sNLg4T2W) }}}-->
     <ul class="tight">
         <li>Good: it runs the code</li>
     </ul>
