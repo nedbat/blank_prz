@@ -116,9 +116,10 @@ img.icon {
 .slide pre {
     font-family: Consolas, monaco, monospace;
     margin-top: 1em;
-    background: #ccf;
+    background: #e4e4ff;
     padding: .3em .35em;
     line-height: 1.15;
+    border-radius: .25em;
 }
 .slide .prelabel {
     font-size: 80%;
@@ -153,16 +154,20 @@ img.icon {
     font-size: 75%;
 }
 
+.slide pre.s65 {
+    font-size: 65%;
+}
+
 .slide pre.tiny, .slide pre.s50 {
     font-size: 50%;
 }
 
-.slide pre.micro, .slide pre.s30 {
-    font-size: 30%;
-}
-
 .slide pre.s40 {
     font-size: 40%;
+}
+
+.slide pre.micro, .slide pre.s30 {
+    font-size: 30%;
 }
 
 .slide pre.nano, .slide pre.s10 {
@@ -184,6 +189,10 @@ img.icon {
 .slide pre .attn {
     background: #ada;
     border-radius: .15em;
+}
+
+.slide pre .hilite {
+    background: rgba(256, 256, 256, .85);
 }
 
 .slide pre .highlight {
